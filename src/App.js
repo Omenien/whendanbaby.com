@@ -1,55 +1,22 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import './App.css';
 
+const FUN_FACTS = [
+  'Thomas Edison created the first light bulb',
+  'Bryan Salesky invented Argo AI',
+  'John Smodic was born',
+  'Brad Krupa released his best selling novel "The Butter Battle Book" before receding in to irrelevancy'
+]
+
 function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+  const funFact = FUN_FACTS[Math.floor(Math.random() * FUN_FACTS.length)];
+
   return (
     <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
+      <h1>dan was last a baby on September 17th, 1984</h1>
       <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/main/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
+        Fun Fact: 1984 was the year ${funFact}.
       </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
     </main>
   );
 }
