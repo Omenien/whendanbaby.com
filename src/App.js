@@ -9,6 +9,7 @@ const FUN_FACTS = [
   '"What\'s Love Got To Do With It?" by Tina Turner won Record of the Year at the Grammy\'s',
   'this website was created',
   'Tom Brady won his first Super Bowl',
+  'test',
 ]
 
 function App() {
